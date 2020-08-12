@@ -49,7 +49,13 @@ do
 				link="http://beta.unity3d.com/download${versionHash}/UnitySetup"
 				
 				echo "$link"
-				wget "$link"
+
+				exitcode=$(wget "$link")
+				if [ $? -ne 0 ]; then
+					echo "An error occurred while attempting to download $displaySearch"
+					resultNum="0"
+				fi
+
 			elif [[ ${download,,} = n ]] || [[ ${download,,} = no ]]; then
 				resultNum="0"
 			else
