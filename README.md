@@ -2,8 +2,8 @@
 
 Bash script to grab any Unity archive for Linux.
 
-Simply run `./unitydownload.sh`, and search for a specific unity version that you want, and it will automatically install the specific UnitySetup.AppImage for that app version. You can exit by typing in "exit" when prompted to search or by pressing Ctrl+C at any time.
+I made this after growing frustrated with Unity's [archive page](https://unity3d.com/get-unity/download/archive) not providing any links for Linux installations, and for teaching myself how to write in bash script.
 
-TODO:
-- Better filtering for search results
-- Choose directory to download into
+## Running
+
+Simply run `./unitydownload.sh`, and search for a specific unity version that you would like to download, and it will install the specific UnitySetup.AppImage for that version. You can exit by typing in "exit" when prompted to search or by pressing Ctrl+C at any time.
