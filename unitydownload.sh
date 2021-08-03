@@ -3,6 +3,7 @@
 html=$(curl "https://unity3d.com/get-unity/download/archive" | grep -Po 'unityhub:.+?(?=\")')
 
 resultNum="0"
+TMPNAME=unitytmp
 
 while [ "$resultNum" == "0" ]
 do
@@ -50,12 +51,16 @@ do
 				
 				echo "$link"
 
-				exitcode=$(wget "$link")
+				exitcode=$(wget "$link" -O "$TMPNAME")
 				if [ $? -ne 0 ]; then
 					echo "An error occurred while attempting to download $displaySearch"
 					resultNum="0"
 				fi
-
+				chmod +x "$TMPNAME"
+				filename="UnitySetup-${displaySearch//./_}"
+				mv "$TMPNAME" "${filename}"
+				echo "------------"
+				echo "Unity Setup installer file '${filename}' downloaded"
 			elif [[ ${download,,} = n ]] || [[ ${download,,} = no ]]; then
 				resultNum="0"
 			else
